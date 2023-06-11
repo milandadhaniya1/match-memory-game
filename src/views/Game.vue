@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IconCard from '@/components/IconCard.vue';
+import { gameStore } from '@/stores/game';
 
 import AntIcon from '@/components/Icons/AntIcon.vue';
 import BearIcon from '@/components/Icons/BearIcon.vue';
@@ -35,43 +36,28 @@ import TurtleIcon from '@/components/Icons/TurtleIcon.vue';
 import UnicornIcon from '@/components/Icons/UnicornIcon.vue';
 import WhaleIcon from '@/components/Icons/WhaleIcon.vue';
 import ZebraIcon from '@/components/Icons/ZebraIcon.vue';
+
+const store = gameStore();
+store.setBoardSize(4);
+const boardSize = store.boardSize;
+const iconMatrix = store.iconMatrix;
+
+iconMatrix.forEach((element,i) => {
+  console.log(element, i)
+});
+
 </script>
 
 <template>
-  <div class="flex flex-wrap">
-    <IconCard><AntIcon /></IconCard>
-    <IconCard><BearIcon /></IconCard>
-    <IconCard><BeeIcon /></IconCard>
-    <IconCard><BirdIcon /></IconCard>
-    <IconCard><ButterflyIcon /></IconCard>
-    <IconCard><CatIcon /></IconCard>
-    <IconCard><ChickenIcon /></IconCard>
-    <IconCard><CowIcon /></IconCard>
-    <IconCard><CrabIcon /></IconCard>
-    <IconCard><DogIcon /></IconCard>
-    <IconCard><DolphinIcon /></IconCard>
-    <IconCard><DonkeyIcon /></IconCard>
-    <IconCard><DuckIcon /></IconCard>
-    <IconCard><ElephantIcon /></IconCard>
-    <IconCard><FalconIcon /></IconCard>
-    <IconCard><FishIcon /></IconCard>
-    <IconCard><FlyIcon /></IconCard>
-    <IconCard><HorseIcon /></IconCard>
-    <IconCard><KangarooIcon /></IconCard>
-    <IconCard><MouseIcon /></IconCard>
-    <IconCard><OctopusIcon /></IconCard>
-    <IconCard><OwlIcon /></IconCard>
-    <IconCard><PeacockIcon /></IconCard>
-    <IconCard><PigIcon /></IconCard>
-    <IconCard><PigeonIcon /></IconCard>
-    <IconCard><SeahorseIcon /></IconCard>
-    <IconCard><SnailIcon /></IconCard>
-    <IconCard><SpiderIcon /></IconCard>
-    <IconCard><SquirrelIcon /></IconCard>
-    <IconCard><SwanIcon /></IconCard>
-    <IconCard><TurtleIcon /></IconCard>
-    <IconCard><UnicornIcon /></IconCard>
-    <IconCard><WhaleIcon /></IconCard>
-    <IconCard><ZebraIcon /></IconCard>
+  <div class="flex flex-wrap justify-center">
+    <table border="0">
+      <tr v-for="row in boardSize" :key="row">
+        <td v-for="clm in boardSize" :key="clm">{{ iconMatrix[(((row-1)*boardSize)+clm)-1].name }}
+          <IconCard><ZebraIcon /></IconCard>
+          <!-- <IconCard><component v-bind:is="iconMatrix[(((row-1)*boardSize)+clm)-1].name" /></IconCard> -->
+        </td>
+      </tr>
+    </table>
+    
   </div>
 </template>
