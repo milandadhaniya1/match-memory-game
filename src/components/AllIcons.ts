@@ -33,7 +33,9 @@ import UnicornIcon from '@/components/Icons/UnicornIcon.vue';
 import WhaleIcon from '@/components/Icons/WhaleIcon.vue';
 import ZebraIcon from '@/components/Icons/ZebraIcon.vue';
 
-export { 
+import DefaultIcon from '@/components/Icons/DefaultIcon.vue';
+
+export {
     AntIcon as anticon,
     BearIcon as bearicon,
     BeeIcon as beeicon,
@@ -67,5 +69,6 @@ export {
     TurtleIcon as turtleicon,
     UnicornIcon as unicornicon,
     WhaleIcon as whaleicon,
-    ZebraIcon as zebraicon
+    ZebraIcon as zebraicon,
+    DefaultIcon as defaulticon,
 };

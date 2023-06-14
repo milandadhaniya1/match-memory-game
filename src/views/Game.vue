@@ -2,7 +2,7 @@
 import { reactive, shallowRef, computed } from 'vue';
 import IconCard from '@/components/IconCard.vue';
 import { gameStore } from '@/stores/game';
-import * as icons from '@/components/Icons/AllIcons';
+import * as icons from '@/components/AllIcons';
 
 // interface iconMatrixObj {
 //   name: string;
@@ -21,12 +21,29 @@ const iconMatrix = computed({
     },
   });
 
-const generateIconComponentName = (row: number, clm: number) => {
+const generateIconComponent = (row: number, clm: number) => {
         const index = (row - 1) * boardSize + clm - 1;
-        console.log('aaa','icons.' + iconMatrix.value.value[index]?.name)
-        return 'icons.' + iconMatrix.value.value[index]?.name;
+        let iconCompName:string = '';
+
+        if(iconMatrix.value.value[index]?.open) {
+          iconCompName = 'defaulticon';
+        } else {
+          iconCompName = iconMatrix.value.value[index]?.name;
+        }
+
+        const iconComp = icons[iconCompName];
+
+        return {
+          index: index,
+          component: iconComp,
+          compName: iconMatrix.value.value[index]?.name,
+          open: iconMatrix.value.value[index]?.open || false,
+        }
       };
 
+const flipCard = (comp : any) => {
+  store.updateIconMatrix(comp.index, !comp.open);
+}
 </script>
 
 <template>
@@ -34,8 +51,8 @@ const generateIconComponentName = (row: number, clm: number) => {
     <table border="0">
       <tr v-for="row in boardSize" :key="row">
         <td v-for="clm in boardSize" :key="clm">
-          <IconCard>
-            <component :is="generateIconComponentName(row, clm)" />
+          <IconCard :is-open="generateIconComponent(row, clm).open" @click="flipCard(generateIconComponent(row, clm))">
+            <component :is="generateIconComponent(row, clm).component" />
           </IconCard>
         </td>
       </tr>

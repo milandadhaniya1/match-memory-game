@@ -51,7 +51,7 @@ export const gameStore = defineStore('game', () => {
       .sort(() => 0.5 - Math.random());
     
     randomMatrixIcons.forEach((e) => {
-      iconMatrix.push({name: e, open:false});
+      iconMatrix.push({name: e, open:true});
     });
   }
 
@@ -60,8 +60,16 @@ export const gameStore = defineStore('game', () => {
     getRandomMatrixIcons((bSize * bSize) / 2);
   }
 
-  function updateIconMatrix() {
-
+  function updateIconMatrix(index: number, status: boolean) {
+    console.log("compName", index);
+    console.log("status", status);
+    console.log("iconMatrix", iconMatrix);
+    iconMatrix.map((e, i) => { 
+      if(i === index) {
+        e.open = status;
+      }
+      return e;
+    })
   }
 
   return { boardSize, setBoardSize, iconMatrix, updateIconMatrix }
