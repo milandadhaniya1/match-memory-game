@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { reactive, shallowRef, computed } from 'vue';
 import IconCard from '@/components/IconCard.vue';
 import { gameStore } from '@/stores/game';
 
@@ -37,14 +38,22 @@ import UnicornIcon from '@/components/Icons/UnicornIcon.vue';
 import WhaleIcon from '@/components/Icons/WhaleIcon.vue';
 import ZebraIcon from '@/components/Icons/ZebraIcon.vue';
 
+// interface iconMatrixObj {
+//   name: string;
+//   open: boolean;
+// }
+
 const store = gameStore();
 store.setBoardSize(4);
 const boardSize = store.boardSize;
-const iconMatrix = store.iconMatrix;
+const iconMatrixStore = shallowRef(reactive(store.iconMatrix));
 
-iconMatrix.forEach((element,i) => {
-  console.log(element, i)
-});
+const iconMatrix = computed({
+    get: () => iconMatrixStore,
+    set: (value) => {console.log("value",value);
+      store.updateIconMatrix();
+    },
+  });
 
 </script>
 
@@ -52,9 +61,10 @@ iconMatrix.forEach((element,i) => {
   <div class="flex flex-wrap justify-center">
     <table border="0">
       <tr v-for="row in boardSize" :key="row">
-        <td v-for="clm in boardSize" :key="clm">{{ iconMatrix[(((row-1)*boardSize)+clm)-1].name }}
-          <IconCard><ZebraIcon /></IconCard>
-          <!-- <IconCard><component v-bind:is="iconMatrix[(((row-1)*boardSize)+clm)-1].name" /></IconCard> -->
+        <td v-for="clm in boardSize" :key="clm">
+          <IconCard>
+            <component v-bind:is="iconMatrix.value[(((row-1)*boardSize)+clm)-1].name" />
+          </IconCard>
         </td>
       </tr>
     </table>
