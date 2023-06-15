@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps(['isOpen']);
-console.log("props",props.isOpen)
 </script>
 
 <template>

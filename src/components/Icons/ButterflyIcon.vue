@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import ButterflyIcon from '@/assets/icons/butterfly.png';
   
 </script>
 
 <template>
-  <Base :iconPath="ButterflyIcon"/>
+  <IconBase :iconPath="ButterflyIcon"/>
 </template>

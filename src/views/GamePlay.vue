@@ -1,23 +1,25 @@
 <script setup lang="ts">
-import { reactive, shallowRef, computed } from 'vue';
-import IconCard from '@/components/IconCard.vue';
-import { gameStore } from '@/stores/game';
-import * as icons from '@/components/AllIcons';
+import { reactive, shallowRef, computed } from "vue";
+import IconCard from "@/components/IconCard.vue";
+import { gameStore } from "@/stores/game";
+import { configStore } from "@/stores/config";
+import * as icons from "@/components/AllIcons";
 
 // interface iconMatrixObj {
 //   name: string;
 //   open: boolean;
 // }
 
-const store = gameStore();
-store.setBoardSize(4);
-const boardSize = store.boardSize;
-const iconMatrixStore = shallowRef(reactive(store.iconMatrix));
+const game = gameStore();
+const config = configStore();
+game.setBoardSize(6);
+const boardSize = config.boardSize;
+const iconMatrixStore = shallowRef(reactive(game.iconMatrix));
 
 const iconMatrix = computed({
     get: () => iconMatrixStore,
     set: (value) => {console.log("value",value);
-      store.updateIconMatrix();
+    game.updateIconMatrix();
     },
   });
 
@@ -42,7 +44,7 @@ const generateIconComponent = (row: number, clm: number) => {
       };
 
 const flipCard = (comp : any) => {
-  store.updateIconMatrix(comp.index, !comp.open);
+  game.updateIconMatrix(comp.index, !comp.open);
 }
 </script>
 

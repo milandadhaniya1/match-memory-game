@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import WhaleIcon from '@/assets/icons/default.png';
 </script>
 
 <template>
-  <Base :iconPath="WhaleIcon"/>
+  <IconBase :iconPath="WhaleIcon"/>
 </template>

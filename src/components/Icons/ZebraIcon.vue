@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import ZebraIcon from '@/assets/icons/zebra.png';
 </script>
 
 <template>
-  <Base :iconPath="ZebraIcon"/>
+  <IconBase :iconPath="ZebraIcon"/>
 </template>

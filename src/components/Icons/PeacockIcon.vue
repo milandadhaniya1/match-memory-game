@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import PeacockIcon from '@/assets/icons/peacock.png';
 </script>
 
 <template>
-  <Base :iconPath="PeacockIcon"/>
+  <IconBase :iconPath="PeacockIcon"/>
 </template>

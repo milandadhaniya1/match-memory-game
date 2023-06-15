@@ -1,9 +1,9 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import AntIcon from '@/assets/icons/ant.png';
   
 </script>
 
 <template>
-  <Base :iconPath="AntIcon"/>
+  <IconBase :iconPath="AntIcon"/>
 </template>

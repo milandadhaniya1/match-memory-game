@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import DogIcon from '@/assets/icons/dog.png';
 </script>
 
 <template>
-  <Base :iconPath="DogIcon"/>
+  <IconBase :iconPath="DogIcon"/>
 </template>

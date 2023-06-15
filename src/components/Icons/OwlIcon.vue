@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import OwlIcon from '@/assets/icons/owl.png';
 </script>
 
 <template>
-  <Base :iconPath="OwlIcon"/>
+  <IconBase :iconPath="OwlIcon"/>
 </template>

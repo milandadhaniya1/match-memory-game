@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import SpiderIcon from '@/assets/icons/spider.png';
 </script>
 
 <template>
-  <Base :iconPath="SpiderIcon"/>
+  <IconBase :iconPath="SpiderIcon"/>
 </template>

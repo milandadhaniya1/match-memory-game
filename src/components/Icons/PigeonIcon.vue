@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import Base from './base.vue';
+  import IconBase from './IconBase.vue';
   import PigeonIcon from '@/assets/icons/pigeon.png';
 </script>
 
 <template>
-  <Base :iconPath="PigeonIcon"/>
+  <IconBase :iconPath="PigeonIcon"/>
 </template>
