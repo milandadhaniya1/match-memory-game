@@ -55,9 +55,9 @@ const flipCard = (comp: any) => {
 
 <template>
   <div class="flex flex-wrap justify-center">
-    <table border="0">
-      <tr v-for="row in boardSize" :key="row">
-        <td v-for="clm in boardSize" :key="clm">
+    <table border="0" class="max-w-xl max-h-min">
+      <tr v-for="row in boardSize" :key="row" class="flex">
+        <td v-for="clm in boardSize" :key="clm" class="flex-col card-box">
           <IconCard
             :is-open="generateIconComponent(row, clm).open"
             @click="flipCard(generateIconComponent(row, clm))"
@@ -69,3 +69,9 @@ const flipCard = (comp: any) => {
     </table>
   </div>
 </template>
+
+<style scoped>
+.card-box {
+  max-width: 80px;
+}
+</style>

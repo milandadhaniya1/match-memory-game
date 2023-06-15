@@ -7,11 +7,15 @@ const config = configStore();
 
 const boardSizeOptions = config.boardSizeOptions;
 
+// Initial board size 4
+game.setBoardSize(4);
+
 const startGame = () => {
-  game.setBoardSize(8);
   game.startGame();
   router.push({ path: '/game' })
 }
+
+const setBoardSize = (event: any) => { console.log(parseInt(event.target.value));game.setBoardSize(parseInt(event.target.value))};
 
 // if(config.isGameStarted && config.boardSize !== 0) {
 //   router.push({ path: '/game' })
@@ -20,7 +24,16 @@ const startGame = () => {
 </script>
 
 <template>
-  <div class="flex">
-    <button @click="startGame()">Play</button>
+  <div class="w-full md:w-auto">
+    <div class="flex flex-wrap justify-center mt-10">
+      <select @change="setBoardSize($event)">
+        <option v-for="(item, index) in boardSizeOptions" :key="item" :value="index">
+          {{ item }}
+        </option>
+      </select>
+    </div>
+    <div class="flex flex-wrap justify-center mt-10">
+      <button class="rounded-full drop-shadow-md bg-sky-500 w-16" @click="startGame()">Play</button>
+    </div>
   </div>
 </template>
