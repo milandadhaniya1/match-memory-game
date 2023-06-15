@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import TurtleIcon from '@/assets/icons/turtle.png';
+import IconBase from './IconBase.vue'
+import TurtleIcon from '@/assets/icons/turtle.png'
 </script>
 
 <template>
-  <IconBase :iconPath="TurtleIcon"/>
+  <IconBase :iconPath="TurtleIcon" />
 </template>

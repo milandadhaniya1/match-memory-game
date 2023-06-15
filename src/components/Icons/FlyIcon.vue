@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import FlyIcon from '@/assets/icons/fly.png';
+import IconBase from './IconBase.vue'
+import FlyIcon from '@/assets/icons/fly.png'
 </script>
 
 <template>
-  <IconBase :iconPath="FlyIcon"/>
+  <IconBase :iconPath="FlyIcon" />
 </template>

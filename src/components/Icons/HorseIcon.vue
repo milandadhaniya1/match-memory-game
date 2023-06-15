@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import HorseIcon from '@/assets/icons/horse.png';
+import IconBase from './IconBase.vue'
+import HorseIcon from '@/assets/icons/horse.png'
 </script>
 
 <template>
-  <IconBase :iconPath="HorseIcon"/>
+  <IconBase :iconPath="HorseIcon" />
 </template>

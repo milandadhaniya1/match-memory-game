@@ -2,10 +2,9 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const configStore = defineStore('config', () => {
-
-  const boardSize = ref(0);
-  const isGameStarted = ref(false);
-  const isWinner = ref(false);
+  const boardSize = ref(0)
+  const isGameStarted = ref(false)
+  const isWinner = ref(false)
   const icons = [
     'anticon',
     'bearicon',
@@ -41,7 +40,7 @@ export const configStore = defineStore('config', () => {
     'unicornicon',
     'whaleicon',
     'zebraicon'
-  ];
+  ]
 
   return { boardSize, icons, isGameStarted, isWinner }
 })

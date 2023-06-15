@@ -1,9 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import BearIcon from '@/assets/icons/bear.png';
-  
+import IconBase from './IconBase.vue'
+import BearIcon from '@/assets/icons/bear.png'
 </script>
 
 <template>
-  <IconBase :iconPath="BearIcon"/>
+  <IconBase :iconPath="BearIcon" />
 </template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import SnailIcon from '@/assets/icons/snail.png';
+import IconBase from './IconBase.vue'
+import SnailIcon from '@/assets/icons/snail.png'
 </script>
 
 <template>
-  <IconBase :iconPath="SnailIcon"/>
+  <IconBase :iconPath="SnailIcon" />
 </template>

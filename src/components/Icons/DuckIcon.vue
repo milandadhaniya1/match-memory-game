@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import IconBase from './IconBase.vue';
-  import DuckIcon from '@/assets/icons/duck.png';
+import IconBase from './IconBase.vue'
+import DuckIcon from '@/assets/icons/duck.png'
 </script>
 
 <template>
-  <IconBase :iconPath="DuckIcon"/>
+  <IconBase :iconPath="DuckIcon" />
 </template>
