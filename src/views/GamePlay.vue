@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { reactive, shallowRef, computed } from 'vue'
-import IconCard from '@/components/IconCard.vue'
+import router from '@/router/index'
 import { gameStore } from '@/stores/game'
 import { configStore } from '@/stores/config'
+import IconCard from '@/components/IconCard.vue'
 import * as icons from '@/components/AllIcons'
 
 // interface iconMatrixObj {
@@ -10,17 +11,20 @@ import * as icons from '@/components/AllIcons'
 //   open: boolean;
 // }
 
-const game = gameStore()
-const config = configStore()
-game.setBoardSize(6)
+const game = gameStore();
+const config = configStore();
+
+if(!config.isGameStarted || config.boardSize === 0) {
+  router.push({ path: '/' })
+}
+
 const boardSize = config.boardSize
 const iconMatrixStore = shallowRef(reactive(game.iconMatrix))
 
 const iconMatrix = computed({
   get: () => iconMatrixStore,
   set: (value) => {
-    console.log('value', value)
-    game.updateIconMatrix()
+    game.updateIconMatrix();
   }
 })
 
