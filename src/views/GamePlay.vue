@@ -6,11 +6,6 @@ import { configStore } from '@/stores/config'
 import IconCard from '@/components/IconCard.vue'
 import * as icons from '@/components/AllIcons'
 
-// interface iconMatrixObj {
-//   name: string;
-//   open: boolean;
-// }
-
 const game = gameStore();
 const config = configStore();
 
@@ -21,19 +16,12 @@ if(!config.isGameStarted || config.boardSize === 0) {
 const boardSize = config.boardSize
 const iconMatrixStore = shallowRef(reactive(game.iconMatrix))
 
-const iconMatrix = computed({
-  get: () => iconMatrixStore,
-  set: (value) => {
-    game.updateIconMatrix();
-  }
-})
-
 const generateIconComponent = (row: number, clm: number) => {
   const index = (row - 1) * boardSize + clm - 1
   let iconCompName: string = ''
 
-  if (iconMatrix.value.value[index]?.open) {
-    iconCompName = iconMatrix.value.value[index]?.name
+  if (iconMatrixStore.value[index]?.open) {
+    iconCompName = iconMatrixStore.value[index]?.name
   } else {
     iconCompName = 'defaulticon'
   }
@@ -43,9 +31,9 @@ const generateIconComponent = (row: number, clm: number) => {
   return {
     index: index,
     component: iconComp,
-    compName: iconMatrix.value.value[index]?.name,
-    open: iconMatrix.value.value[index]?.open || false,
-    matched: iconMatrix.value.value[index]?.matched || false,
+    compName: iconMatrixStore.value[index]?.name,
+    open: iconMatrixStore.value[index]?.open || false,
+    matched: iconMatrixStore.value[index]?.matched || false,
   }
 }
 
