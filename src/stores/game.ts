@@ -17,7 +17,7 @@ export const gameStore = defineStore('game', () => {
 
   const getRandomMatrixIcons = (numberofIcons: number) => {
     //Remove all items from icon matrix
-    iconMatrix.splice(0, iconMatrix.length);
+    iconMatrix.splice(0, iconMatrix.length)
     const selectedIcons = []
     const shuffled = [...config.icons].sort(() => 0.5 - Math.random())
     selectedIcons.push(...shuffled.slice(0, numberofIcons))
@@ -30,48 +30,48 @@ export const gameStore = defineStore('game', () => {
   }
 
   const updateIconMatrix = (index: number, status: boolean, matched: boolean) => {
-    if(matched) return;
+    if (matched) return
 
-    const openUnmachedObj = iconMatrix.filter((e) => e.open === true && e.matched === false);
-    
+    const openUnmachedObj = iconMatrix.filter((e) => e.open === true && e.matched === false)
+
     iconMatrix.map((e, i) => {
       if (i === index) {
-        e.open = status;
+        e.open = status
 
-        if(status === false) return;
-        
+        if (status === false) return
+
         if (openUnmachedObj.length === 1 && openUnmachedObj[0].name === e.name) {
           // Matched
-          e.matched = true;
-          openUnmachedObj[0].matched = true;
+          e.matched = true
+          openUnmachedObj[0].matched = true
         } else if (openUnmachedObj.length === 1) {
           // Unmatched
           setTimeout(() => {
-            e.open = false;
-            openUnmachedObj[0].open = false;
-          }, 500);          
+            e.open = false
+            openUnmachedObj[0].open = false
+          }, 500)
         } else if (openUnmachedObj.length === 2) {
           // If user select more than two within 500 ms - do notthing
         }
       }
       return e
-    });
+    })
 
-    checkForWin();
+    checkForWin()
   }
 
   const checkForWin = () => {
-    const allMatched = iconMatrix.every(item => item.matched === true);
-    if(allMatched === true) winGame();
+    const allMatched = iconMatrix.every((item) => item.matched === true)
+    if (allMatched === true) winGame()
   }
 
   const winGame = () => {
     config.isGameStarted = false
     config.isWinner = true
     setTimeout(() => {
-      alert("Congratulations!! Click ok to start new game!!")
+      alert('Congratulations!! Click ok to start new game!!')
       router.push({ path: '/' })
-    }, 500);  
+    }, 500)
   }
 
   return { setBoardSize, startGame, iconMatrix, updateIconMatrix, winGame }

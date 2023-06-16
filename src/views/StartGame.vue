@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { gameStore } from '@/stores/game'
 import router from '@/router/index'
-import StartGameButton from '@/components/StartGameButton.vue';
-import StartGameSelectDifficulty from '@/components/StartGameSelectDifficulty.vue';
+import StartGameButton from '@/components/StartGameButton.vue'
+import StartGameSelectDifficulty from '@/components/StartGameSelectDifficulty.vue'
 
-const game = gameStore();
+const game = gameStore()
 
 const startGame = () => {
-  game.startGame();
+  game.startGame()
   router.push({ path: '/game' })
 }
 </script>
@@ -38,4 +38,4 @@ const startGame = () => {
   -webkit-background-clip: text;
   text-align: center;
 }
-  </style>
+</style>

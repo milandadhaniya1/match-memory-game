@@ -42,10 +42,10 @@ export const configStore = defineStore('config', () => {
     'zebraicon'
   ]
   const boardSizeOptions = {
-    "4" : "Easy",
-    "6" : "Medium",
-    "8" : "Hard"
+    '4': 'Easy',
+    '6': 'Medium',
+    '8': 'Hard'
   }
 
-  return { boardSize, icons, boardSizeOptions,  isGameStarted, isWinner }
+  return { boardSize, icons, boardSizeOptions, isGameStarted, isWinner }
 })

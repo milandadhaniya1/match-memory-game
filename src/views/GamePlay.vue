@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { reactive, shallowRef, computed } from 'vue'
+import { reactive, shallowRef } from 'vue'
 import router from '@/router/index'
 import { gameStore } from '@/stores/game'
 import { configStore } from '@/stores/config'
 import IconCard from '@/components/IconCard.vue'
 import * as icons from '@/components/AllIcons'
 
-const game = gameStore();
-const config = configStore();
+const game = gameStore()
+const config = configStore()
 
-if(!config.isGameStarted || config.boardSize === 0) {
+//If game not started redirect to home page
+if (!config.isGameStarted || config.boardSize === 0) {
   router.push({ path: '/' })
 }
 
@@ -33,7 +34,7 @@ const generateIconComponent = (row: number, clm: number) => {
     component: iconComp,
     compName: iconMatrixStore.value[index]?.name,
     open: iconMatrixStore.value[index]?.open || false,
-    matched: iconMatrixStore.value[index]?.matched || false,
+    matched: iconMatrixStore.value[index]?.matched || false
   }
 }
 
@@ -51,7 +52,7 @@ const flipCard = (comp: any) => {
             :is-open="generateIconComponent(row, clm).open"
             @click="flipCard(generateIconComponent(row, clm))"
           >
-            <component :is="generateIconComponent(row, clm).component"/>
+            <component :is="generateIconComponent(row, clm).component" />
           </IconCard>
         </td>
       </tr>
