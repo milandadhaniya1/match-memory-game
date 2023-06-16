@@ -50,6 +50,7 @@ const flipCard = (comp: any) => {
         <td v-for="clm in boardSize" :key="clm" class="flex-col card-box w-full h-full">
           <IconCard
             :is-open="generateIconComponent(row, clm).open"
+            :is-matched="generateIconComponent(row, clm).matched"
             @click="flipCard(generateIconComponent(row, clm))"
           >
             <component :is="generateIconComponent(row, clm).component" />

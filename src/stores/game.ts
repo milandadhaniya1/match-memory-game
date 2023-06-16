@@ -69,7 +69,7 @@ export const gameStore = defineStore('game', () => {
     config.isGameStarted = false
     config.isWinner = true
     setTimeout(() => {
-      alert('Congratulations!! Click ok to start new game!!')
+      alert('Congratulations!! You did it.. \nClick ok to start new game!!')
       router.push({ path: '/' })
     }, 500)
   }
