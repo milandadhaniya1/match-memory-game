@@ -44,12 +44,13 @@ const generateIconComponent = (row: number, clm: number) => {
     index: index,
     component: iconComp,
     compName: iconMatrix.value.value[index]?.name,
-    open: iconMatrix.value.value[index]?.open || false
+    open: iconMatrix.value.value[index]?.open || false,
+    matched: iconMatrix.value.value[index]?.matched || false,
   }
 }
 
 const flipCard = (comp: any) => {
-  game.updateIconMatrix(comp.index, !comp.open)
+  game.updateIconMatrix(comp.index, !comp.open, comp.matched)
 }
 </script>
 
