@@ -33,9 +33,9 @@ const generateIconComponent = (row: number, clm: number) => {
   let iconCompName: string = ''
 
   if (iconMatrix.value.value[index]?.open) {
-    iconCompName = 'defaulticon'
-  } else {
     iconCompName = iconMatrix.value.value[index]?.name
+  } else {
+    iconCompName = 'defaulticon'
   }
 
   const iconComp = icons[iconCompName]
@@ -54,7 +54,7 @@ const flipCard = (comp: any) => {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center">
+  <div class="flex flex-wrap h-screen items-center justify-center">
     <table border="0" class="max-w-xl max-h-min">
       <tr v-for="row in boardSize" :key="row" class="flex">
         <td v-for="clm in boardSize" :key="clm" class="flex-col card-box">

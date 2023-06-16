@@ -21,7 +21,7 @@ export const gameStore = defineStore('game', () => {
     const randomMatrixIcons = [...selectedIcons, ...selectedIcons].sort(() => 0.5 - Math.random())
 
     randomMatrixIcons.forEach((e) => {
-      iconMatrix.push({ name: e, open: true })
+      iconMatrix.push({ name: e, open: false, matched: false })
     })
   }
 

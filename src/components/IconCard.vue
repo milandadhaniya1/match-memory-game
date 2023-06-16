@@ -7,7 +7,7 @@ const props = defineProps(['isOpen'])
     <div
       :class="[
         'rounded-md m-1 justify-center shadow-md group-hover:opacity-75 cursor-pointer',
-        { 'bg-gray-900': !props.isOpen, 'bg-white': props.isOpen }
+        { 'bg-gray-900': props.isOpen, 'bg-white': !props.isOpen }
       ]"
     >
       <slot />
